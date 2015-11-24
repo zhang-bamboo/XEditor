@@ -1,0 +1,18 @@
+
+Already:
+Add javaDoc
+Add class diagram
+Add simple draw panel
+
+To:  
+Add 自动换行 右键弹出 复选框 疯狂P413
+Add 按exit close 退出程序abort
+Bug 全隐藏时，分割图不隐藏
+
+Add 字体，颜色设置  颜色选择对话框
+Add 操作回退，前进
+Add 表格处理
+Add 打印
+Add DB备份恢复
+Add 剪切板  P426
+Add draw pane delete

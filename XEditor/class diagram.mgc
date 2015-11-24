@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="file.SaveDialog" x="789" y="183">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="xEditorUI.XEditorFrame"
+            endpointName="faFrame" kind="Simple"/>
+        <Communication destinationClassName="xEditorUI.MyTabbedPane"/>
+        <Communication destinationClassName="dataSet.FileDataSet"/>
+    </Class>
+    <Class name="xEditorUI.NewFileDialog" x="782" y="64">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="xEditorUI.XEditorFrame"
+            endpointName="faFrame" kind="Simple"/>
+    </Class>
+    <Class name="xEditorUI.MyMenuBar" x="321" y="-1">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="xEditorUI.XEditorFrame"
+            endpointName="faFrame" kind="Simple"/>
+    </Class>
+    <Class name="popupMenu.TabbedPanePopupMenu" x="123" y="210">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="xEditorUI.XEditorFrame"
+            endpointName="faFrame" kind="Simple"/>
+    </Class>
+    <Class name="xEditorUI.TreePane" x="461" y="399">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="xEditorUI.XEditorFrame"
+            endpointName="faFrame" kind="Simple"/>
+    </Class>
+    <Class name="xEditorUI.XEditorFrame" x="510" y="188">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="xEditorUI.MyMenuBar"
+            endpointName="menubar" kind="Simple"/>
+        <Association destinationClassName="xEditorUI.MySplitPane"
+            endpointName="mainSplitPane" kind="Simple"/>
+        <Association destinationClassName="xEditorUI.MyTree"
+            endpointName="tree" kind="Simple"/>
+        <Association destinationClassName="xEditorUI.TreePane"
+            endpointName="treeScrlPane" kind="Simple"/>
+        <Association destinationClassName="dataSet.FileDataSet"
+            endpointName="fileDataSet" kind="Simple"/>
+        <Association destinationClassName="xEditorUI.MyTabbedPane"
+            endpointName="tabbedPane" kind="Simple"/>
+        <Communication destinationClassName="xEditorUI.MyMenuBar"/>
+    </Class>
+    <Class name="xEditorUI.MyTabbedPane" x="117" y="101">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="xEditorUI.XEditorFrame"
+            endpointName="faFrame" kind="Simple"/>
+        <Association
+            destinationClassName="popupMenu.TabbedPanePopupMenu"
+            endpointName="popupMenu" kind="Simple"/>
+        <Communication destinationClassName="xEditorUI.XEditorFrame"/>
+        <Communication destinationClassName="popupMenu.TabbedPanePopupMenu"/>
+        <Communication destinationClassName="xEditorUI.MySplitPane"/>
+        <Communication destinationClassName="dataSet.FileDataSet"/>
+    </Class>
+    <Class name="xEditorUI.MySplitPane" x="108" y="341">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="xEditorUI.XEditorFrame"
+            endpointName="faFrame" kind="Simple"/>
+        <Communication destinationClassName="xEditorUI.MyTabbedPane"/>
+        <Communication destinationClassName="popupMenu.TabbedPanePopupMenu"/>
+    </Class>
+    <Class name="popupMenu.TreePopupMenu" x="837" y="351">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="xEditorUI.XEditorFrame"
+            endpointName="faFrame" kind="Simple"/>
+    </Class>
+    <Class name="dataSet.FileDataSet" x="498" y="54">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="xEditorUI.XEditorFrame"
+            endpointName="faFrame" kind="Simple"/>
+        <Communication destinationClassName="xEditorUI.MyTabbedPane"/>
+        <Communication destinationClassName="xEditorUI.MyTree"/>
+    </Class>
+    <Class name="xEditorUI.MyTree" x="594" y="396">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="xEditorUI.XEditorFrame"
+            endpointName="faFrame" kind="Simple"/>
+    </Class>
+</ClassDiagram>
