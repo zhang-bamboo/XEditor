@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
@@ -21,6 +23,7 @@ import dataSet.Language;
 import database.DbFrame;
 import file.MyFile;
 import file.SaveDialog;
+import music.MusicDialog;
 import myDate.CalendarTable;
 import net.InetAddr;
 
@@ -149,9 +152,19 @@ public class MyMenuBar extends JMenuBar {
 	    }
 	});
 	toolMenu.add(new JMenuItem(Language.getNames("calendar")));
-	toolMenu.getItem(2).addActionListener(new ActionListener() {// localhost
+	toolMenu.getItem(2).addActionListener(new ActionListener() {// 
 	    public void actionPerformed(ActionEvent e) {
 		new CalendarTable().setVisible(true);
+	    }
+	});
+	toolMenu.add(new JMenuItem("music"));
+	toolMenu.getItem(3).addActionListener(new ActionListener() {//
+	    public void actionPerformed(ActionEvent e) {
+		try {
+		    new MusicDialog(faFrame).setVisible(true);
+		} catch (MalformedURLException e1) {
+		    e1.printStackTrace();
+		}
 	    }
 	});
 
