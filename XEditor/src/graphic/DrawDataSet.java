@@ -21,7 +21,17 @@ public class DrawDataSet {
     public Object[] getDrawObject(int index) {
 	return (Object[]) drawObjects.get(index);
     }
-
+    public Object[] getArgs(int index){
+	Object[] objects=(Object[]) drawObjects.get(index);
+	Object[] args=new Object[objects.length-1];
+	for(int i=0;i<args.length;i++){
+	    args[i]=objects[i+1];
+	}
+	return args;
+    }
+    public String getType(int index){
+	return (String) ((Object[]) drawObjects.get(index))[0];
+    }
     public void removeObject(int index) {
 	drawObjects.remove(index);
     }

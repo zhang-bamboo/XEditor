@@ -13,8 +13,9 @@ import xEditorUI.XEditorFrame;
 public class DrawingPanePopupMenu extends JPopupMenu {
     private XEditorFrame faFrame;
     private ButtonGroup buttonGroup;
-    private String drawType[]={"drawOval","drawRect"};
+    private String[] drawTypes = { "drawOval", "drawRect","fillOval","fillRect","drawLine"};
     private String currentDrawType;
+
     public DrawingPanePopupMenu(Frame frame) {
 	faFrame = (XEditorFrame) frame;
 	buttonGroup = new ButtonGroup();
@@ -22,7 +23,7 @@ public class DrawingPanePopupMenu extends JPopupMenu {
     }
 
     public String getSelectItem() {
-	    return currentDrawType;
+	return currentDrawType;
     }
 
     public void addMenuItem(JRadioButtonMenuItem menuItem) {
@@ -32,26 +33,18 @@ public class DrawingPanePopupMenu extends JPopupMenu {
 
     private ActionListener actionListener = new ActionListener() {
 	public void actionPerformed(ActionEvent e) {
-	    String selectedItem = ((JRadioButtonMenuItem) e.getSource()).getText();
-	    if (selectedItem.equals("drawOval")) {
-		currentDrawType="drawOval";
-	    } else if (selectedItem.equals("drawRect")) {
-		currentDrawType="drawRect";
-	    }
-
+	    currentDrawType = ((JRadioButtonMenuItem) e.getSource()).getText();
 	}
     };
 
     private void initPopupMenu() {
-	JRadioButtonMenuItem drawOval = new JRadioButtonMenuItem("drawOval");
-	buttonGroup.add(drawOval);
-	drawOval.addActionListener(actionListener);
-	add(drawOval);
-	JRadioButtonMenuItem drawRect = new JRadioButtonMenuItem("drawRect");
-	buttonGroup.add(drawRect);
-	drawRect.addActionListener(actionListener);
-	add(drawRect);
-
+	JRadioButtonMenuItem menuItem;
+	for (String drawType : drawTypes) {
+	    menuItem = new JRadioButtonMenuItem(drawType);
+	    menuItem.addActionListener(actionListener);
+	    buttonGroup.add(menuItem);
+	    add(menuItem);
+	}
     }
 
 }

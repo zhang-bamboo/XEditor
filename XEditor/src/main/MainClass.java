@@ -2,6 +2,8 @@ package main;
 
 
 import java.awt.BorderLayout;
+import java.awt.Graphics;
+import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.util.Scanner;
 
@@ -9,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import graphic.DrawingPane;
+import graphic.PaintMethod;
 import myDate.MyCalendar;
 import xEditorUI.XEditorFrame;
 /**
@@ -19,22 +22,8 @@ import xEditorUI.XEditorFrame;
 public class MainClass {
 
 	public static void main(String args[]) {
-//	    JTextArea textArea=new JTextArea("hello");
-//	    JScrollPane component=new JScrollPane(textArea);
-//	    JTextArea text = (JTextArea) component.getComponent(0);
-//	    JFrame frame=new JFrame();
-//	    frame.getContentPane().add(text, BorderLayout.CENTER);
-//	    frame.setVisible(true);
 	    
-//	    JFrame frame=new JFrame();
-//	    JPanel panel=new DrawingPane();
-//	    frame.setContentPane(panel);
-//	    frame.setBounds(300, 300, 300, 300);
-//	    frame.setVisible(true);
 	    
-//	    MyCalendar calendar=new MyCalendar();
-//	    calendar.setMonth(7);
-//	    calendar.printCalendar();
 	    
 		XEditorFrame editorFrame;
 		try {

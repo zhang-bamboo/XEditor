@@ -3,6 +3,10 @@ Already:
 Add javaDoc
 Add class diagram
 Add simple draw panel
+Change draw panel more flexible, use class Method
+
+To:
+Change draw Panel more flexible:  choose draw, add drawDots
 
 To:  
 Add 自动换行 右键弹出 复选框 疯狂P413
