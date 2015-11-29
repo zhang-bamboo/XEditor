@@ -68,5 +68,43 @@ public class StringFormat {
 	    return null;
 	return "."+(strings[strings.length-1]);
     }
+    /**
+     * °ë½Ç×ªÈ«½Ç
+     * @param input String.
+     * @return È«½Ç×Ö·û´®.
+     */
+    public static String ToSBC(String input) {
+             char c[] = input.toCharArray();
+             for (int i = 0; i < c.length; i++) {
+               if (c[i] == ' ') {
+                 c[i] = '\u3000';
+               } else if (c[i] < '\177') {
+                 c[i] = (char) (c[i] + 65248);
 
+               }
+             }
+             return new String(c);
+    }
+
+    /**
+     * È«½Ç×ª°ë½Ç
+     * @param input String.
+     * @return °ë½Ç×Ö·û´®
+     */
+    public static String ToDBC(String input) {
+        
+
+             char c[] = input.toCharArray();
+             for (int i = 0; i < c.length; i++) {
+               if (c[i] == '\u3000') {
+                 c[i] = ' ';
+               } else if (c[i] > '\uFF00' && c[i] < '\uFF5F') {
+                 c[i] = (char) (c[i] - 65248);
+
+               }
+             }
+        String returnString = new String(c);
+        
+             return returnString;
+    }
 }

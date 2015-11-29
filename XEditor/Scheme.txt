@@ -4,6 +4,8 @@ Add javaDoc
 Add class diagram
 Add simple draw panel
 Change draw panel more flexible, use class Method
+Add event dispatch thread 配置 swing组件, EventQueue.invokeLater()
+Add MySQL database driver 2015.11.29
 
 To:
 Change draw Panel more flexible:  choose draw, add drawDots
@@ -12,6 +14,7 @@ Add 图片处理，放大，翻转
 Add 打印
 Add music
 Change menu, use linkedList
+get 半角转全角
 
 To:  
 Add 自动换行 右键弹出 复选框 疯狂P413
@@ -20,3 +23,4 @@ Add 操作回退，前进
 Add 表格处理
 Add DB备份恢复
 Add 剪切板  P426
+Add 单元测试

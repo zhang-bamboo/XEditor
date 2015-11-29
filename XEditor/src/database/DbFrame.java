@@ -21,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 import dataSet.Language;
+import database.Database.DatabaseType;
 
 @SuppressWarnings("serial")
 public class DbFrame extends JFrame {
@@ -39,7 +40,7 @@ public class DbFrame extends JFrame {
 	super(Language.getNames("database"));
 	container = getContentPane();
 	myDatabase = new Database();
-	myDatabase.getConnection();
+	myDatabase.getConnection("MYSQL");
 	dbTable = new JTable();
 	showPane = new JScrollPane(dbTable);
 	container.add(showPane, BorderLayout.CENTER);
