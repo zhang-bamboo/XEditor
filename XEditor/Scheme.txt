@@ -6,13 +6,14 @@ Add simple draw panel
 Change draw panel more flexible, use class Method
 Add event dispatch thread 配置 swing组件, EventQueue.invokeLater()
 Add MySQL database driver 2015.11.29
+Add music
+Add Observer pattern
 
 To:
 Change draw Panel more flexible:  choose draw, add drawDots
 Add draw pane delete
 Add 图片处理，放大，翻转
 Add 打印
-Add music
 Change menu, use linkedList
 get 半角转全角
 

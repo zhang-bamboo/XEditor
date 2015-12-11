@@ -11,14 +11,16 @@ import java.awt.event.MouseEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
+import javax.swing.tree.DefaultMutableTreeNode;
 
 import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 
+import dataSet.FileDataObserver;
 import dataSet.FileDataSet;
 import myLib.StringFormat;
 import popupMenu.TabbedPanePopupMenu;
 
-public class MyTabbedPane extends JTabbedPane {
+public class MyTabbedPane extends JTabbedPane implements FileDataObserver{
     /**
      * 
      */
@@ -28,6 +30,7 @@ public class MyTabbedPane extends JTabbedPane {
 
     public MyTabbedPane(Frame frame) {
 	this.faFrame = (XEditorFrame) frame;
+        faFrame.getFileDataSet().registerObserver(this);	
 	setPreferredSize(new Dimension(280, 280));
 	popupMenu = new TabbedPanePopupMenu(faFrame);
 	addMouseListener(new MouseAdapter() {
@@ -44,6 +47,17 @@ public class MyTabbedPane extends JTabbedPane {
 	return popupMenu;
     }
 
+    @Override
+    public void update(Type type, String fileName, String newFileName,Component component) {
+	if(type.equals(FileDataObserver.Type.ADD)){
+            appendTab(fileName, component);
+        }else if(type.equals(FileDataObserver.Type.REOMVE)){
+            removeTab(fileName);
+	}else {
+	    renameTab(fileName, newFileName);
+	}
+        
+    }
     public void appendTab(String name, Component component) {
 	super.addTab(name, component);
 	setSelectedComponent(component);

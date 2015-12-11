@@ -1,5 +1,6 @@
 package xEditorUI;
 
+import java.awt.Component;
 import java.awt.Frame;
 
 import javax.swing.JTree;
@@ -8,11 +9,13 @@ import javax.swing.event.TreeExpansionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
+
+import dataSet.FileDataObserver;
 import dataSet.Language;
 
 
 @SuppressWarnings("serial")
-public class MyTree extends JTree {
+public class MyTree extends JTree implements FileDataObserver{
     private XEditorFrame faFrame;
     private DefaultMutableTreeNode root;
     private DefaultTreeModel treeModel;
@@ -21,6 +24,7 @@ public class MyTree extends JTree {
 
     public MyTree(Frame faFrame) {
 	this.faFrame = (XEditorFrame) faFrame;
+	this.faFrame.getFileDataSet().registerObserver(this);
 	root = new DefaultMutableTreeNode(Language.getNames("project"));
 	treeModel = new DefaultTreeModel(root);
 	setModel(treeModel);
@@ -43,7 +47,18 @@ public class MyTree extends JTree {
     public void setIsOpenAgain(boolean isOpenAgain) {
 	this.isOpenAgain = isOpenAgain;
     }
-
+    
+    @Override
+    public void update(Type type, String fileName,String newFileName,Component component) {
+        if(type.equals(FileDataObserver.Type.ADD)){
+            addTreeNode(new DefaultMutableTreeNode(fileName));
+        }else if(type.equals(FileDataObserver.Type.REOMVE)){
+            removeNode();
+	}else {
+	    renameNode(newFileName);
+	}
+        
+    }
     public void addTreeNode(DefaultMutableTreeNode insertNode) {
 	treeModel.insertNodeInto(insertNode, root, root.getChildCount());
     }

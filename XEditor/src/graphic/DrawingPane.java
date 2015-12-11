@@ -12,9 +12,6 @@ import java.util.LinkedList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
-
-import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
-
 import xEditorUI.XEditorFrame;
 
 @SuppressWarnings("serial")
@@ -23,7 +20,7 @@ public class DrawingPane extends JPanel {
     private boolean isChoosing;
     private DrawingPanePopupMenu popupMenu;
     private DrawDataSet drawDataSet;
-
+    private DrawToolBar toolBar;
     private static final int TYPE = 0;
     private static final int X = 1;
     private static final int Y = 2;
@@ -31,6 +28,8 @@ public class DrawingPane extends JPanel {
 
     public DrawingPane(Frame frame) {
 	faFrame = (XEditorFrame) frame;
+	toolBar=new DrawToolBar();
+	add(toolBar, BorderLayout.SOUTH);
 	isChoosing = false;
 	popupMenu = new DrawingPanePopupMenu(faFrame);
 	drawDataSet = new DrawDataSet();

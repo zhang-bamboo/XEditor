@@ -12,6 +12,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 
 import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 
+import dataSet.FileDataObserver.Type;
 import graphic.DrawingPane;
 import myLib.StringFormat;
 import xEditorUI.XEditorFrame;
@@ -23,7 +24,7 @@ import xEditorUI.XEditorFrame;
  * @author zhang
  *
  */
-public class FileDataSet {
+public class FileDataSet implements FileDataSubject{
     private XEditorFrame faFrame;
     private static LinkedList<String> fileAddrs = new LinkedList<String>();
     private static LinkedList<String> fileNames = new LinkedList<String>();
@@ -32,10 +33,28 @@ public class FileDataSet {
     private static String[] tableTypes = { ".xls", ".xlsx" };
     private static String[] graphicTypes = { ".jpg", ".bmp" };
 
+    private LinkedList<FileDataObserver> observers=new LinkedList<>(); 
     public FileDataSet(Frame f) {
 	faFrame = (XEditorFrame) f;
     }
 
+    @Override
+    public void registerObserver(FileDataObserver observer) {
+        observers.add(observer);
+        
+    }
+    @Override
+    public void removeObserver(FileDataObserver observer) {
+        observers.remove(observer);
+    }
+    @Override
+    public void notifyObserver(Type type,String fileName,String newFileName,Component component) {
+	if(type==null)
+	    return;
+        for(FileDataObserver observer:observers){
+            observer.update(type, fileName,newFileName,component);
+        }
+    }
     // if has same name,then add (n),n:from 1
     private String sameNameTest(String fileName) {
 	int sameNameMark = 0;
@@ -136,8 +155,7 @@ public class FileDataSet {
 	    return;
 	}
 	components.add(addComponent);
-	faFrame.getTree().addTreeNode(new DefaultMutableTreeNode(fileName));
-	faFrame.getTabbedPane().appendTab(fileName, addComponent);
+	notifyObserver(Type.ADD, fileName, null,addComponent);
     }
 
     /**
@@ -154,8 +172,7 @@ public class FileDataSet {
 	fileNames.remove(index);
 	components.remove(index);
 	fileAddrs.remove(index);
-	faFrame.getTree().removeNode();
-	faFrame.getTabbedPane().removeTab(fileName);
+	notifyObserver(Type.REOMVE, fileName, null,null);
     }
 
     /**
@@ -188,9 +205,7 @@ public class FileDataSet {
 	    throw new IllegalArgumentException("fileName not find");
 	}
 	fileNames.set(index, newName);
-	faFrame.getTree().renameNode(newName);
-	faFrame.getTabbedPane().renameTab(oldName, newName);
-
+	notifyObserver(Type.CHANGE, oldName, newName,null);
     }
 
     /**
@@ -233,5 +248,6 @@ public class FileDataSet {
 	}
 	return components.get(index);
     }
+
 
 }
